@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    background: 'linear-gradient(to right,  #663399, #5B72FF)',
+    background: 'linear-gradient(to right,  #1E84FC, #5BDBCE)',
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -116,13 +116,13 @@ const Header = ({ siteTitle }) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit">
-            {siteTitle}
+            {!open ? siteTitle : null}
           </Typography>
         </Toolbar>
       </AppBar>
       <Drawer
         className={classes.drawer}
-        variant="persistent"
+        variant="temporary"
         anchor="left"
         open={open}
         classes={{
