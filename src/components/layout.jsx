@@ -19,14 +19,10 @@ const Layout = ({ children }) => {
         style={{
           margin: '0 auto',
           maxWidth: 960,
-          paddingTop: 100,
+          paddingTop: 64,
         }}
       >
         {children}
-        <footer style={{ paddingTop: 10 }}>
-          © {new Date().getFullYear()}, Built with{' '}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
       </div>
     </div>
   )
