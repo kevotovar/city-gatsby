@@ -7,24 +7,28 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import { ThemeProvider } from '@material-ui/core/styles'
 
+import theme from 'src/styles/theme'
 import Header from './header'
 import './layout.css'
 
 const Layout = ({ children }) => {
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#FFF' }}>
-      <Header siteTitle="City bienes raíces" />
-      <div
-        style={{
-          margin: '0 auto',
-          maxWidth: 960,
-          paddingTop: 64,
-        }}
-      >
-        {children}
+    <ThemeProvider theme={theme}>
+      <div style={{ minHeight: '100vh', backgroundColor: '#FFF' }}>
+        <Header siteTitle="City bienes raíces" />
+        <div
+          style={{
+            margin: '0 auto',
+            maxWidth: 960,
+            paddingTop: 64,
+          }}
+        >
+          {children}
+        </div>
       </div>
-    </div>
+    </ThemeProvider>
   )
 }
 

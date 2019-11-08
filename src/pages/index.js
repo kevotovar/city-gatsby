@@ -14,6 +14,9 @@ import HeroImage from '../components/HeroImage'
 import SEO from '../components/seo'
 
 const useStyles = makeStyles({
+  card: {
+    height: '100%',
+  },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
@@ -26,7 +29,7 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Compra y renta de propiedades en México" />
       <HeroImage />
-      <Grid container spacing={4}>
+      <Grid container spacing={4} alignItems="stretch">
         <Grid item xs={12}>
           <Typography variant="h3" component="h1">
             Encuentra tu casa
@@ -72,7 +75,7 @@ const IndexPage = () => {
           render={data =>
             get(data, 'allNocNockProperty.edges', []).map(({ node }) => (
               <Grid item xs={12} sm={6} md={4} key={node.id}>
-                <Card>
+                <Card className={classes.card}>
                   <CardMedia
                     image={node.mediumPictureUrl}
                     className={classes.media}
