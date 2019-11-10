@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import get from 'lodash/get'
+import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
@@ -13,7 +14,7 @@ import Layout from '../components/layout'
 import HeroImage from '../components/HeroImage'
 import SEO from '../components/seo'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   card: {
     height: '100%',
   },
@@ -21,7 +22,10 @@ const useStyles = makeStyles({
     height: 0,
     paddingTop: '56.25%', // 16:9
   },
-})
+  paper: {
+    backgroundColor: theme.palette.primary.main,
+  },
+}))
 
 const IndexPage = () => {
   const classes = useStyles()
@@ -29,12 +33,13 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Compra y renta de propiedades en México" />
       <HeroImage />
+      <Paper className={classes.paper}>
+        <Typography variant="h3" component="h1">
+          Encuentra tu casa
+        </Typography>
+      </Paper>
       <Grid container spacing={4} alignItems="stretch">
-        <Grid item xs={12}>
-          <Typography variant="h3" component="h1">
-            Encuentra tu casa
-          </Typography>
-        </Grid>
+        <Grid item xs={12}></Grid>
         <StaticQuery
           query={graphql`
             query IndexPropertiesQuery {
