@@ -1,44 +1,32 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import get from 'lodash/get'
-import Paper from '@material-ui/core/Paper'
-import { makeStyles } from '@material-ui/core/styles'
-import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import Grid from '@material-ui/core/Grid'
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
+import { Grid, Box, Heading } from 'grommet'
 
 import Layout from '../components/layout'
 import HeroImage from '../components/HeroImage'
 import SEO from '../components/seo'
 
-const useStyles = makeStyles(theme => ({
-  card: {
-    height: '100%',
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
-  paper: {
-    backgroundColor: theme.palette.primary.main,
-  },
-}))
-
 const IndexPage = () => {
-  const classes = useStyles()
   return (
     <Layout>
       <SEO title="Compra y renta de propiedades en México" />
-      <HeroImage />
-      <Paper className={classes.paper}>
-        <Typography variant="h3" component="h1">
-          Encuentra tu casa
-        </Typography>
-      </Paper>
-      <Grid container spacing={4} alignItems="stretch">
+      <Grid
+        columns={['1/2', '1/2']}
+        rows={['full']}
+        gap="none"
+        areas={[
+          { name: 'heroText', start: [0, 0], end: [0, 0] },
+          { name: 'heroImage', start: [1, 0], end: [1, 0] },
+        ]}
+      >
+        <Box gridArea="heroImage">
+          <HeroImage />
+        </Box>
+        <Box gridArea="heroText" justify="center" pad="small">
+          <Heading>Encuentra tu casa</Heading>
+        </Box>
+      </Grid>
+      {/* <Grid container spacing={4} alignItems="stretch">
         <Grid item xs={12}></Grid>
         <StaticQuery
           query={graphql`
@@ -103,7 +91,7 @@ const IndexPage = () => {
             Ver más
           </Button>
         </Grid>
-      </Grid>
+      </Grid> */}
     </Layout>
   )
 }

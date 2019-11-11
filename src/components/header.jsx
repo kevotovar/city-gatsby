@@ -11,28 +11,28 @@ const Header = () => {
     <HeadRoom>
       <Box
         pad="medium"
-        elevation="small"
+        elevation="large"
         direction="row"
         align="center"
-        background="white"
+        background="brand"
       >
-        <Box margin={{ right: '8px' }}>
+        <Box margin={{ right: '16px' }}>
           <Button
             gap="none"
-            icon={<Menu />}
+            icon={<Menu color="white" />}
             plain
             onClick={() => setOpen(!isOpen)}
           />
         </Box>
-        <Box fill="horizontal" margin={{ right: '8px' }}>
-          <Text>City Bienes Raíces</Text>
+        <Box margin={{ right: '48px' }}>
+          <Text color="white">City Bienes Raíces</Text>
         </Box>
         <ResponsiveContext.Consumer>
           {size =>
             size === 'medium' || size === 'large' ? (
               <>
                 <Link to="/">
-                  <Button label="Inicio" plain />
+                  <Button label="Inicio" plain color="white" />
                 </Link>
               </>
             ) : null
